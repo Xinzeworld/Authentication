@@ -1,0 +1,29 @@
+#include "stdafx.h"
+#include <stdio.h> // dlya ++ cstdio
+#include <string.h>
+#define PASSWORD_SIZE 100
+#define PASSWORD "pass228\n"
+char buff[PASSWORD_SIZE]; // for zagotovka dlya c++
+#pragma data_seg() // for zagotovka dlya c++
+
+int main()
+{
+int count=0;
+// Буфер пароля, для пользователя
+   char buff[PASSWORD_SIZE];
+   // цикл аутентификации
+   for(;;)
+   {
+       // Запрашиваем пасс и считываем его
+       printf("Hi, Enter password:");
+       fgets(&buff[0],PASSWORD_SIZE,stdin);
+       // Сравниваем оригинальный и введенный пароль
+       if (strcmp(&buff[0],PASSWORD))
+       printf("Wrong password\n");
+       // Иначе (если пароли идентичны)
+       // выходим из цикла аутентификации
+       else break;
+       if (++count>3) return ‐1;
+   }
+   printf("Password OK\n");
+}
