@@ -20,7 +20,7 @@ int count=0;
        // Сравниваем оригинальный и введенный пароль
        if (strcmp(&buff[0],PASSWORD))
        printf("Wrong password\n");
-       // Иначе (если пароли идентичны)
+       // else (если пароли идентичны)
        // выходим из цикла аутентификации
        else break;
        if (++count>3) return ‐1;
